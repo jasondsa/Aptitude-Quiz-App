@@ -1,4 +1,2 @@
-# Easy-Quiz-App
-
-![image](https://user-images.githubusercontent.com/108933534/215812414-8ffb0156-8332-4779-8fb3-adb1594107c3.png)
-
+# Aptitude-Quiz-App
+The Aptitude Quiz App is a mobile tool for enhancing aptitude skills in areas like logic, math, vocabulary, and programming. Built with Java in Android Studio, it features a user-friendly interface, MCQs, and instant feedback to boost learning.
