@@ -42,7 +42,7 @@ public class AppController {
         return questionModelList.size();
     }
 
-    public QuestionModel getQuestion(int level) {//leveldagi indexni bizga qaytaradi !
+    public QuestionModel getQuestion(int level) {
         return questionModelList.get(level);
     }
 }
