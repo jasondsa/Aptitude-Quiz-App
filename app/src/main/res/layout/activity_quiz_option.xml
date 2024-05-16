@@ -73,7 +73,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvGeography"
+        android:id="@+id/Vocabulary"
         style="@style/cardViewStyle"
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"
@@ -117,9 +117,9 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/cvGeography"
-        app:layout_constraintStart_toStartOf="@+id/cvGeography"
-        app:layout_constraintTop_toBottomOf="@+id/cvGeography">
+        app:layout_constraintEnd_toEndOf="@+id/Vocabulary"
+        app:layout_constraintStart_toStartOf="@+id/Vocabulary"
+        app:layout_constraintTop_toBottomOf="@+id/Vocabulary">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
