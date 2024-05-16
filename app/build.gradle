@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.azamovhudstc.quizapp"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 4//
         versionName "1.5"
 //
@@ -27,17 +27,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'com.azamovhudstc.quizapp'
 }
 
 dependencies {
     implementation 'com.akexorcist:round-corner-progress-bar:2.1.2'
     implementation 'nl.dionsegijn:konfetti-xml:2.0.2'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24'
 
     implementation 'com.github.jinatonic.confetti:confetti:1.1.2'
     implementation 'com.github.Shashank02051997:FancyGifDialog-Android:1.5'
 
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation fileTree(dir: 'D:\\tegmang ochirib tashlaman', include: ['*.aar', '*.jar'], exclude: [])

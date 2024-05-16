@@ -10,6 +10,7 @@ import android.view.View;
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.page.GeographyOrLiteratureQuizActivity;
 import com.azamovhudstc.quizapp.ui.page.MathQuizActivity;
+import com.azamovhudstc.quizapp.ui.page.Vocabulary;
 import com.azamovhudstc.quizapp.util.Constants;
 
 public class QuizOptionActivity extends AppCompatActivity {
@@ -28,9 +29,9 @@ public class QuizOptionActivity extends AppCompatActivity {
         cvMath.setOnClickListener(view -> {
             mathClick();
         });
-        CardView cvGeoGraph = findViewById(R.id.cvGeography);
-        cvGeoGraph.setOnClickListener(view -> {
-            geoGraphClick();
+        CardView Vocabulary = findViewById(R.id.Vocabulary);
+        Vocabulary.setOnClickListener(view -> {
+            VocabularyClick();
         });
         CardView cvLiterature = findViewById(R.id.cvLiterature);
         cvLiterature.setOnClickListener(view -> {
@@ -45,9 +46,9 @@ public class QuizOptionActivity extends AppCompatActivity {
 
     }
 
-    public void geoGraphClick() {
-        Intent intent = new Intent(QuizOptionActivity.this, FlagActivity.class);
-        intent.putExtra(Constants.SUBJECT, getString(R.string.geography));
+    public void VocabularyClick() {
+        Intent intent = new Intent(QuizOptionActivity.this, Vocabulary.class);
+        intent.putExtra(Constants.SUBJECT, getString(R.string.vocabulary));
         startActivity(intent);
     }
 
