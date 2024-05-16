@@ -1,9 +1,5 @@
 package com.azamovhudstc.quizapp.ui.page;
 
-import androidx.annotation.MainThread;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.FinalResultActivity;
@@ -25,11 +23,10 @@ import com.azamovhudstc.quizapp.util.Constants;
 import com.azamovhudstc.quizapp.util.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MathQuizActivity extends AppCompatActivity {
+public class VocabularyActivity extends AppCompatActivity {
     private int currentQuestionIndex = 0;
     private TextView tvQuestion, tvQuestionNumber, text1, text2, text3, text4;
     private Button btnNext;
@@ -49,17 +46,20 @@ public class MathQuizActivity extends AppCompatActivity {
 
     String subject;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_math_quiz);
+        setContentView(R.layout.activity_vocabulary);
+
         Intent intent = getIntent();
 
         subject = intent.getStringExtra(Constants.SUBJECT);
+
         chronometer = new Chronometer(this);
 
-        if (subject.equals(getString(R.string.geography))) {
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.geography), Constants.QUESTION_SHOWING);
+        if (subject.equals(getString(R.string.vocabulary))) {
+            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.vocabulary), Constants.QUESTION_SHOWING);
         }
         initView();
 
@@ -69,7 +69,9 @@ public class MathQuizActivity extends AppCompatActivity {
         variantClick4();
         progressBar.setMax(60);
 
+
         chronometer.start();
+        //Search this method in the code
         Log.d("!@#", "onCreate: " + (System.currentTimeMillis() - chronometer.getBase()));
 
 
@@ -89,10 +91,7 @@ public class MathQuizActivity extends AppCompatActivity {
             }
         });
 
-
         displayData();
-
-
     }
 
     private void createCountDownTimer(int timeC) {
@@ -114,7 +113,7 @@ public class MathQuizActivity extends AppCompatActivity {
                 //Do what you want
                 times[0] = 0;
 
-                Intent intentResult = new Intent(MathQuizActivity.this, FinalResultActivity.class);
+                Intent intentResult = new Intent(VocabularyActivity.this, FinalResultActivity.class);
                 intentResult.putExtra(Constants.SUBJECT, subject);
                 intentResult.putExtra(Constants.CORRECT, correctQuestion);
                 intentResult.putExtra(Constants.TYPE, "math");
@@ -130,12 +129,12 @@ public class MathQuizActivity extends AppCompatActivity {
     }
 
 
+
     private void pauseTime() {
         mCountDownTimer.cancel();
         isActive = false;
 
     }
-
 
     private void variantClick1() {
         Intent intent = getIntent();
@@ -199,11 +198,11 @@ public class MathQuizActivity extends AppCompatActivity {
     private void variantClick4() {
         radioButton4.setOnClickListener(v -> {
                     click(v);
-            radioButton2.setEnabled(false);
-            radioButton3.setEnabled(false);
-            radioButton1.setEnabled(false);
+                    radioButton2.setEnabled(false);
+                    radioButton3.setEnabled(false);
+                    radioButton1.setEnabled(false);
 
-            cardBg4.setImageResource(R.drawable.set_checked_to_variant);
+                    cardBg4.setImageResource(R.drawable.set_checked_to_variant);
                     cardBg2.setImageResource(R.drawable.set_un_checked_to_variant);
                     cardBg3.setImageResource(R.drawable.set_un_checked_to_variant);
                     cardBg.setImageResource(R.drawable.set_un_checked_to_variant);
@@ -258,6 +257,7 @@ public class MathQuizActivity extends AppCompatActivity {
 
     }
 
+
     private void clickButton() {
         if (!txt.isEmpty()) {
 
@@ -273,7 +273,7 @@ public class MathQuizActivity extends AppCompatActivity {
             if (btnNext.getText().equals(getString(R.string.next))) {
                 displayNextQuestions();
             } else {
-                Intent intentResult = new Intent(MathQuizActivity.this, FinalResultActivity.class);
+                Intent intentResult = new Intent(VocabularyActivity.this, FinalResultActivity.class);
                 intentResult.putExtra(Constants.SUBJECT, subject);
                 intentResult.putExtra(Constants.CORRECT, correctQuestion);
                 intentResult.putExtra(Constants.TYPE, "math");
@@ -285,6 +285,7 @@ public class MathQuizActivity extends AppCompatActivity {
         }
     }
 
+
     private void click(View view) {
         view.setEnabled(false);
         view.postDelayed(new Runnable() {
@@ -294,7 +295,6 @@ public class MathQuizActivity extends AppCompatActivity {
             }
         }, 300);
     }
-
 
     public void initView() {
         questions = new ArrayList<>(questionsAnswerMap.keySet());
@@ -318,7 +318,6 @@ public class MathQuizActivity extends AppCompatActivity {
         radioButton3 = findViewById(R.id.radioButton3);
         radioButton4 = findViewById(R.id.radioButton4);
     }
-
 
     @Override
     protected void onDestroy() {
@@ -353,4 +352,6 @@ public class MathQuizActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
+
+
 }

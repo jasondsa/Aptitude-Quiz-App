@@ -10,7 +10,7 @@ import android.view.View;
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.page.GeographyOrLiteratureQuizActivity;
 import com.azamovhudstc.quizapp.ui.page.MathQuizActivity;
-import com.azamovhudstc.quizapp.ui.page.Vocabulary;
+import com.azamovhudstc.quizapp.ui.page.VocabularyActivity;
 import com.azamovhudstc.quizapp.util.Constants;
 
 public class QuizOptionActivity extends AppCompatActivity {
@@ -47,7 +47,7 @@ public class QuizOptionActivity extends AppCompatActivity {
     }
 
     public void VocabularyClick() {
-        Intent intent = new Intent(QuizOptionActivity.this, Vocabulary.class);
+        Intent intent = new Intent(QuizOptionActivity.this, VocabularyActivity.class);
         intent.putExtra(Constants.SUBJECT, getString(R.string.vocabulary));
         startActivity(intent);
     }

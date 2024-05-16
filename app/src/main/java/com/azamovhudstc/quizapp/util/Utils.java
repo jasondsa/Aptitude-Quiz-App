@@ -66,6 +66,16 @@ public class Utils {
         return questionsMap;
     }
 
+    public static Map<String, Map<String,Boolean>> getVocabularyQuestions(){
+        HashMap<String,Map<String,Boolean>> questions = new HashMap<>();
+
+        HashMap<String,Boolean> answer1 = new HashMap<>();
+
+
+
+        return questions;
+    }
+
 
 
     public static Map<String,Map<String,Boolean>> getLiteratureQuestions(){

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.page.Vocabulary"
+            android:name=".ui.page.VocabularyActivity"
             android:exported="false" />
         <activity
             android:name=".ui.Vocabulary"
