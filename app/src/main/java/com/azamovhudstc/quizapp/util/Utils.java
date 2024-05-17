@@ -70,12 +70,116 @@ public class Utils {
         HashMap<String,Map<String,Boolean>> questions = new HashMap<>();
 
         HashMap<String,Boolean> answer1 = new HashMap<>();
+        answer1.put("Ordinary",false);
+        answer1.put("Incredible",true);
+        answer1.put("Boring",false);
+        answer1.put("Common",false);
+        questions.put("Select the most appropriate synonym for the word 'Amazing': ",answer1);
+
+        HashMap<String,Boolean> answer2 = new HashMap<>();
+        answer2.put("End",false);
+        answer2.put("Start",true);
+        answer2.put("Finish",false);
+        answer2.put("Stop",false);
+        questions.put("Find the synonym for 'Begin': ",answer2);
+
+        HashMap<String,Boolean> answer3 = new HashMap<>();
+        answer3.put("Tasteless",false);
+        answer3.put("Savoury",true);
+        answer3.put("Bland",false);
+        answer3.put("Unappetizing",false);
+        questions.put("Select the word that means the same as 'Delicious':",answer3);
+
+        HashMap<String,Boolean> answer4 = new HashMap<>();
+        answer4.put("Serious",false);
+        answer4.put("Amusing",true);
+        answer4.put("Solemn",false);
+        answer4.put("Grave",false);
+        questions.put("Choose the correct synonym for 'Funny':",answer4);
+
+        HashMap<String,Boolean> answer5 = new HashMap<>();
+        answer5.put("Trivial",false);
+        answer5.put("Insignificant",false);
+        answer5.put("Vital",true);
+        answer5.put("Minor",false);
+        questions.put("Find the synonym for 'Important':",answer5);
+
+        HashMap<String,Boolean> answer6 = new HashMap<>();
+        answer6.put("Dull",false);
+        answer6.put("Boring",false);
+        answer6.put("Intriguing",true);
+        answer6.put("Tedious",true);
+        questions.put("Select the word that means the same as 'Interesting':",answer6);
+
+        HashMap<String,Boolean> answer7 = new HashMap<>();
+        answer7.put("Exacerbate",false);
+        answer7.put("Alleviate",true);
+        answer7.put("Aggravate",false);
+        answer7.put("Intensify",false);
+        questions.put("Which word means 'to make something less severe'?",answer7);
+
+        HashMap<String,Boolean> answer8 = new HashMap<>();
+        answer8.put("Delay",false);
+        answer8.put("Hinder",false);
+        answer8.put("Expedite",true);
+        answer8.put("Procrastinate",false);
+        questions.put("Which word means 'to make something happen sooner or more quickly'?",answer8);
+
+        HashMap<String,Boolean> answer9 = new HashMap<>();
+        answer9.put("Obscure",false);
+        answer9.put("Confuse",false);
+        answer9.put("Clarify",true);
+        answer9.put("Complicate",false);
+        questions.put("Which word means 'to make something clear or easier to understand'?",answer9);
 
 
+        HashMap<String,Boolean> answer10 = new HashMap<>();
+        answer10.put("Contract",false);
+        answer10.put("Diminish",false);
+        answer10.put("Expand",true);
+        answer10.put("Shrink",false);
+
+        questions.put("Which word means 'to increase in size or volume'?",answer10);
+
+        //Sample Questions
+        HashMap<String,Boolean> answer11 = new HashMap<>();
+        answer11.put("since",false);
+        answer11.put("for",true);
+        answer11.put("during",false);
+        answer11.put("in",false);
+        questions.put("Which word correctly completes the sentence: 'He has been working here ___ five years'?",answer11);
+
+
+        HashMap<String,Boolean> answer12 = new HashMap<>();
+        answer12.put("since",true);
+        answer12.put("for",false);
+        answer12.put("during",false);
+        answer12.put("in",false);
+        questions.put("Which word correctly completes the sentence: 'I have lived in this city ___ 2002'?",answer12);
+
+        HashMap<String,Boolean> answer13 = new HashMap<>();
+        answer13.put("She have gone to the market.",false);
+        answer13.put("She has gone to the market.",false);
+        answer13.put("She is gone to the market.",false);
+        answer13.put("She are gone to the market.",false);
+        questions.put("Which sentence uses the correct form of the verb?",answer13);
+
+        HashMap<String,Boolean> answer14 = new HashMap<>();
+        answer14.put("I have been to the cinema last night.",false);
+        answer14.put("I went to the cinema last night.",true);
+        answer14.put("I go to the cinema last night.",false);
+        answer14.put("I was going to the cinema last night.",false);
+        questions.put("Which sentence is correct?",answer14);
+
+        HashMap<String,Boolean> answer15 = new HashMap<>();
+        answer15.put("in",true);
+        answer15.put("on",false);
+        answer15.put("at",false);
+        answer15.put("to",false);
+        questions.put("He succeeded ___ passing the exam.",answer15);
 
         return questions;
     }
-
 
 
     public static Map<String,Map<String,Boolean>> getLiteratureQuestions(){
@@ -287,8 +391,12 @@ public class Utils {
         Map<String, Map<String, Boolean>> originalQuestion;
         if (subject.equals(context.getString(R.string.geography))){
             originalQuestion = getGeographyQuestions();
-        }else{
+        }else if(subject.equals(context.getString(R.string.vocabulary))){
+            originalQuestion = getVocabularyQuestions();
+        }else if(subject.equals(context.getString(R.string.literature))){
             originalQuestion = getLiteratureQuestions();
+        }else{
+            originalQuestion = null;
         }
 
         int originalSize =  originalQuestion.size();
