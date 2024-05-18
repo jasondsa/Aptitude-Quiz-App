@@ -66,7 +66,7 @@ public class Utils {
         return questionsMap;
     }
 
-    public static Map<String, Map<String,Boolean>> getVocabularyQuestions(){
+        public static Map<String, Map<String,Boolean>> getVocabularyQuestions(){
         HashMap<String,Map<String,Boolean>> questions = new HashMap<>();
 
         HashMap<String,Boolean> answer1 = new HashMap<>();
@@ -180,6 +180,122 @@ public class Utils {
 
         return questions;
     }
+
+
+    public static Map<String, Map<String,Boolean>> getLogicalReasoningQuestions(){
+        HashMap<String,Map<String,Boolean>> questions = new HashMap<>();
+
+        HashMap<String, Boolean> answer1 = new HashMap<>();
+        answer1.put("3, 1, 4, 5, 2", true);
+        answer1.put("1, 2, 4, 3, 5", false);
+        answer1.put("5, 4, 3, 2, 1", false);
+        answer1.put("3, 1, 2, 4, 5", false);
+        questions.put("Arrange the words in a meaningful sequence: 1. Police 2. Punishment 3. Crime 4. Judge 5. Judgment", answer1);
+
+        HashMap<String, Boolean> answer2 = new HashMap<>();
+        answer2.put("Assumption I is implied", true);
+        answer2.put("Assumption II is implied", false);
+        answer2.put("Either I or II is implied", false);
+        answer2.put("Neither I nor II is implied", false);
+        questions.put("Statement: French language learning should be started in school. Assumptions: 1. French language is easy to learn 2. Learning French helps in getting a job", answer2);
+
+        HashMap<String, Boolean> answer3 = new HashMap<>();
+        answer3.put("All mangoes are golden in color", false);
+        answer3.put("No golden-colored things are mangoes", false);
+        answer3.put("Some mangoes are golden in color", true);
+        answer3.put("All golden-colored things are mangoes", false);
+        questions.put("Statements: All mangoes are golden in color. No golden-colored things are apples. Conclusions: 1. All mangoes are apples. 2. No apples are golden in color.", answer3);
+
+        HashMap<String, Boolean> answer4 = new HashMap<>();
+        answer4.put("Peter is in the East of Mike", false);
+        answer4.put("Mike is in the South of Peter", true);
+        answer4.put("Peter is in the North of Mike", false);
+        answer4.put("Mike is in the East of Peter", false);
+        questions.put("Peter is in the East of Tom and Tom is in the North of John. Mike is in the South of John. In which direction of Peter is Mike?", answer4);
+
+        HashMap<String, Boolean> answer5 = new HashMap<>();
+        answer5.put("A kilogram", true);
+        answer5.put("A meter", false);
+        answer5.put("A liter", false);
+        answer5.put("A second", false);
+        questions.put("Which word does not belong to the group: A kilogram, A meter, A liter, A second?", answer5);
+
+        HashMap<String, Boolean> answer6 = new HashMap<>();
+        answer6.put("A", false);
+        answer6.put("B", true);
+        answer6.put("C", false);
+        answer6.put("D", false);
+        questions.put("Which of the following diagrams correctly represents lions, elephants, and animals? A) Lions and elephants have no relationship to each other, but both are animals. B) Lions and elephants are both animals, but they are not related to each other. C) Lions and elephants are both animals and are related to each other. D) Lions and elephants are not animals.", answer6);
+
+        HashMap<String, Boolean> answer7 = new HashMap<>();
+        answer7.put("A", false);
+        answer7.put("B", true);
+        answer7.put("C", false);
+        answer7.put("D", false);
+        questions.put("Which of the following is the correct logical sequence of words: 1. Infection 2. Consultation 3. Doctor 4. Treatment 5. Recovery? A) 1, 3, 2, 4, 5 B) 1, 3, 2, 5, 4 C) 1, 2, 3, 4, 5 D) 1, 2, 3, 5, 4", answer7);
+
+        HashMap<String, Boolean> answer8 = new HashMap<>();
+        answer8.put("A", false);
+        answer8.put("B", true);
+        answer8.put("C", false);
+        answer8.put("D", false);
+        questions.put("Which of the following is the correct logical sequence of words: 1. Presentation 2. Recommendation 3. Arrival 4. Discussion 5. Introduction? A) 3, 5, 1, 4, 2 B) 3, 5, 1, 2, 4 C) 3, 1, 5, 4, 2 D) 3, 1, 4, 5, 2", answer8);
+
+        HashMap<String, Boolean> answer9 = new HashMap<>();
+        answer9.put("A", false);
+        answer9.put("B", true);
+        answer9.put("C", false);
+        answer9.put("D", false);
+        questions.put("Which of the following is the correct logical sequence of words: 1. Birth 2. Death 3. Education 4. Career 5. Marriage? A) 1, 3, 4, 5, 2 B) 1, 3, 5, 4, 2 C) 1, 4, 3, 5, 2 D) 1, 5, 3, 4, 2", answer9);
+
+        HashMap<String, Boolean> answer10 = new HashMap<>();
+        answer10.put("A", false);
+        answer10.put("B", true);
+        answer10.put("C", false);
+        answer10.put("D", false);
+        questions.put("Which of the following is the correct logical sequence of words: 1. Seed 2. Plant 3. Tree 4. Fruit 5. Flower? A) 1, 2, 3, 4, 5 B) 1, 2, 5, 3, 4 C) 1, 3, 2, 5, 4 D) 1, 2, 3, 5, 4", answer10);
+
+
+        HashMap<String, Boolean> answer11 = new HashMap<>();
+        answer11.put("1, 2, 3, 4, 5", false);
+        answer11.put("3, 1, 4, 5, 2", true);
+        answer11.put("5, 4, 3, 2, 1", false);
+        answer11.put("1, 2, 4, 3, 5", false);
+        questions.put("Arrange the words in a meaningful sequence: 1. Police 2. Punishment 3. Crime 4. Judge 5. Judgment", answer11);
+
+        HashMap<String, Boolean> answer12 = new HashMap<>();
+        answer12.put("Assumption I is implied", true);
+        answer12.put("Assumption II is implied", false);
+        answer12.put("Either I or II is implied", false);
+        answer12.put("Neither I nor II is implied", false);
+        questions.put("Statement: French language learning should be started in school. Assumptions: 1. French language is easy to learn 2. Learning French helps in getting a job", answer12);
+
+        HashMap<String, Boolean> answer13 = new HashMap<>();
+        answer13.put("All mangoes are golden in color", false);
+        answer13.put("No golden-colored things are mangoes", false);
+        answer13.put("Some mangoes are golden in color", true);
+        answer13.put("All golden-colored things are mangoes", false);
+        questions.put("Statements: All mangoes are golden in color. No golden-colored things are apples. Conclusions: 1. All mangoes are apples. 2. No apples are golden in color.", answer13);
+
+        HashMap<String, Boolean> answer14 = new HashMap<>();
+        answer14.put("Peter is in the East of Mike", false);
+        answer14.put("Mike is in the South of Peter", true);
+        answer14.put("Peter is in the North of Mike", false);
+        answer14.put("Mike is in the East of Peter", false);
+        questions.put("Peter is in the East of Tom and Tom is in the North of John. Mike is in the South of John. In which direction of Peter is Mike?", answer14);
+
+        HashMap<String, Boolean> answer15 = new HashMap<>();
+        answer15.put("A kilogram", true);
+        answer15.put("A meter", false);
+        answer15.put("A liter", false);
+        answer15.put("A second", false);
+        questions.put("Which word does not belong to the group: A kilogram, A meter, A liter, A second?", answer15);
+
+        return questions;
+
+    }
+
+
 
 
     public static Map<String,Map<String,Boolean>> getLiteratureQuestions(){
@@ -393,7 +509,9 @@ public class Utils {
             originalQuestion = getGeographyQuestions();
         }else if(subject.equals(context.getString(R.string.vocabulary))){
             originalQuestion = getVocabularyQuestions();
-        }else if(subject.equals(context.getString(R.string.literature))){
+        } else if (subject.equals(context.getString(R.string.logical_reasoning))){
+            originalQuestion = getLogicalReasoningQuestions();
+        } else if(subject.equals(context.getString(R.string.literature))){
             originalQuestion = getLiteratureQuestions();
         }else{
             originalQuestion = null;

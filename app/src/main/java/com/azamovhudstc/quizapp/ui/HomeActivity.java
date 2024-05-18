@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -23,12 +24,16 @@ public class HomeActivity extends AppCompatActivity {
     CardView cvStartQuiz, cvRule, cvHistory, cvLogout, cvAbout;
     QuizPref quizPref;
 
+
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initView();
+
+        
         userNameHome.setText("Hello " + quizPref.getName());
         cvHistory.setOnClickListener(v -> {
             startActivity(new Intent(HomeActivity.this, HistoryActivity.class));
