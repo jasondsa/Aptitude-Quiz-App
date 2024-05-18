@@ -6,8 +6,7 @@
     android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.page.VocabularyActivity">
-
+    tools:context=".ui.page.LogicalReasoningActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -92,7 +91,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        tools:text="42*32=?" />
+        tools:text="Questions" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNextQuestionLiteratureAndGeography"

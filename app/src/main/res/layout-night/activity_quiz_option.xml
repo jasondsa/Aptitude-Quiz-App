@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -75,7 +76,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvGeography"
+        android:id="@+id/Vocabulary"
         style="@style/cardViewStyle"
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"
@@ -114,14 +115,14 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvLiterature"
+        android:id="@+id/LogicalReasoning"
         style="@style/cardViewStyle"
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/cvGeography"
-        app:layout_constraintStart_toStartOf="@+id/cvGeography"
-        app:layout_constraintTop_toBottomOf="@+id/cvGeography">
+        app:layout_constraintEnd_toEndOf="@+id/Vocabulary"
+        app:layout_constraintStart_toStartOf="@+id/Vocabulary"
+        app:layout_constraintTop_toBottomOf="@+id/Vocabulary">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -159,9 +160,9 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/cvLiterature"
-        app:layout_constraintStart_toStartOf="@+id/cvLiterature"
-        app:layout_constraintTop_toBottomOf="@+id/cvLiterature">
+        app:layout_constraintEnd_toEndOf="@+id/LogicalReasoning"
+        app:layout_constraintStart_toStartOf="@+id/LogicalReasoning"
+        app:layout_constraintTop_toBottomOf="@+id/LogicalReasoning">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -122,9 +122,9 @@ public class FinalResultActivity extends AppCompatActivity {
         if (attempt.getCorrect() > 5) {
 
 
-            tvWellDone.setText("Ajoyib," + quizPref.getName());
+            tvWellDone.setText("Well Done," + quizPref.getName());
         } else {
-            tvWellDone.setText("Yomon," + quizPref.getName());
+            tvWellDone.setText("It's bad," + quizPref.getName());
 
         }
         tvDate.setText(Utils.formatDate(attempt.getCreatedTime()));

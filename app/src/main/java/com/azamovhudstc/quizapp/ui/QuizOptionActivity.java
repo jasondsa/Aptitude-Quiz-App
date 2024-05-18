@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.page.GeographyOrLiteratureQuizActivity;
+import com.azamovhudstc.quizapp.ui.page.LogicalReasoningActivity;
 import com.azamovhudstc.quizapp.ui.page.MathQuizActivity;
 import com.azamovhudstc.quizapp.ui.page.VocabularyActivity;
 import com.azamovhudstc.quizapp.util.Constants;
@@ -19,24 +21,35 @@ public class QuizOptionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_option);
-        CardView cvMath = findViewById(R.id.cvMath);
+
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-        cvMath.setOnClickListener(view -> {
-            mathClick();
+        findViewById(R.id.cvMath).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mathClick();
+            }
         });
-        CardView Vocabulary = findViewById(R.id.Vocabulary);
-        Vocabulary.setOnClickListener(view -> {
-            VocabularyClick();
+
+
+        findViewById(R.id.Vocabulary).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                VocabularyClick();
+            }
         });
-        CardView cvLiterature = findViewById(R.id.cvLiterature);
-        cvLiterature.setOnClickListener(view -> {
-            literatureClick();
+
+        findViewById(R.id.LogicalReasoning).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogicalReasoningClick();
+            }
         });
+
     }
 
     public void mathClick() {
@@ -52,9 +65,9 @@ public class QuizOptionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void literatureClick() {
-        Intent intent = new Intent(QuizOptionActivity.this, GeographyOrLiteratureQuizActivity.class);
-        intent.putExtra(Constants.SUBJECT, getString(R.string.literature));
+    public void LogicalReasoningClick() {
+        Intent intent = new Intent(QuizOptionActivity.this, LogicalReasoningActivity.class);
+        intent.putExtra(Constants.SUBJECT, getString(R.string.logical_reasoning));
         startActivity(intent);
     }
 }

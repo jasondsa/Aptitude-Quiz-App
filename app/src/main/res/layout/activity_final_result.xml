@@ -39,7 +39,7 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="18sp"
-        tools:text="Well Done, Hud2456"
+        tools:text="Well Done, Jason"
         app:layout_constraintStart_toStartOf="@+id/imageViewFinalResultQuiz"
         app:layout_constraintTop_toBottomOf="@+id/result_" />
 
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Subcject:"
+        android:text="Subject:"
         app:layout_constraintStart_toStartOf="@+id/tvWellDone"
         app:layout_constraintTop_toBottomOf="@+id/tvWellDone" />
 
@@ -139,6 +139,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintStart_toStartOf="@+id/textView27"
         app:layout_constraintTop_toTopOf="@+id/textView15"
-        tools:text="27 Oct 2020 09:15 AM" />
+        tools:text="17 Nov 2002 12:15 AM" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
