@@ -12,6 +12,7 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,19 +50,24 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
     String subject;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logical_reasoning);
-
         Intent intent = getIntent();
 
         subject = intent.getStringExtra(Constants.SUBJECT);
 
+        Toast.makeText(this, subject, Toast.LENGTH_SHORT).show();
+
         chronometer = new Chronometer(this);
 
-        if (subject.equals(getString(R.string.logical_reasoning))) {
+        if (subject.equals(getString(R.string.math))) {
+            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.math), Constants.QUESTION_SHOWING);
+        }else{
             questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.logical_reasoning), Constants.QUESTION_SHOWING);
+
         }
         initView();
 
@@ -70,6 +76,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
         variantClick3();
         variantClick4();
         progressBar.setMax(60);
+
 
         chronometer.start();
         //Search this method in the code
@@ -91,45 +98,50 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
             }
         });
+
         displayData();
     }
+
     private void createCountDownTimer(int timeC) {
-        final int[] times = {timeC};
-        mCountDownTimer = new CountDownTimer(times[0], 1000) {
+            final int[] times = {timeC};
+            mCountDownTimer = new CountDownTimer(times[0], 1000) {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                times[0] -= 1000;
-                time -= 1000;
-                progressTime = (int) (millisUntilFinished / 1000);
-                System.out.println("Progresss:" + progressTime);
-                progressBar.setProgress(progressTime);
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    times[0] -= 1000;
+                    time -= 1000;
+                    progressTime = (int) (millisUntilFinished / 1000);
+                    System.out.println("Progresss:" + progressTime);
+                    progressBar.setProgress(progressTime);
 
-            }
+                }
 
-            @Override
-            public void onFinish() {
-                //Do what you want
-                times[0] = 0;
+                @Override
+                public void onFinish() {
+                    //Do what you want
+                    times[0] = 0;
 
-                Intent intentResult = new Intent(LogicalReasoningActivity.this, FinalResultActivity.class);
-                intentResult.putExtra(Constants.SUBJECT, subject);
-                intentResult.putExtra(Constants.CORRECT, correctQuestion);
-                intentResult.putExtra(Constants.TYPE, "math");
-                intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
-                intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intentResult);
-                finish();
+                    Intent intentResult = new Intent(LogicalReasoningActivity.this, FinalResultActivity.class);
+                    intentResult.putExtra(Constants.SUBJECT, subject);
+                    intentResult.putExtra(Constants.CORRECT, correctQuestion);
+                    intentResult.putExtra(Constants.TYPE, "math");
+                    intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
+                    intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intentResult);
+                    finish();
 
-                progressBar.setProgress(0);
-            }
-        }.start();
+                    progressBar.setProgress(0);
+                }
+            }.start();
 
     }
 
+
+
     private void pauseTime() {
-        mCountDownTimer.cancel();
-        isActive = false;
+
+            mCountDownTimer.cancel();
+            isActive = false;
 
     }
 
@@ -154,7 +166,6 @@ public class LogicalReasoningActivity extends AppCompatActivity {
     }
 
     private void variantClick2() {
-
         radioButton2.setOnClickListener(v -> {
                     click(v);
                     radioButton1.setEnabled(false);
@@ -174,6 +185,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
 
     private void variantClick3() {
+
 
         radioButton3.setOnClickListener(v -> {
                     click(v);
