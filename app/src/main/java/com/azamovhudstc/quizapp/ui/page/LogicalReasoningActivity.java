@@ -61,12 +61,10 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
         chronometer = new Chronometer(this);
 
-        if (subject.equals(getString(R.string.math))) {
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.math), Constants.QUESTION_SHOWING);
-        }else{
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.logical_reasoning), Constants.QUESTION_SHOWING);
 
-        }
+        questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.logical_reasoning), Constants.QUESTION_SHOWING);
+
+
         initView();
 
         variantClick1();

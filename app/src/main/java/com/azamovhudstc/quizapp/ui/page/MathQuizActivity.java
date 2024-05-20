@@ -59,7 +59,7 @@ public class MathQuizActivity extends AppCompatActivity {
         chronometer = new Chronometer(this);
 
         if (subject.equals(getString(R.string.geography))) {
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.geography), Constants.QUESTION_SHOWING);
+            questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.geography), Constants.QUESTION_SHOWING);
         }
         initView();
 

@@ -59,7 +59,7 @@ public class VocabularyActivity extends AppCompatActivity {
         chronometer = new Chronometer(this);
 
         if (subject.equals(getString(R.string.vocabulary))) {
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.vocabulary), Constants.QUESTION_SHOWING);
+            questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.vocabulary), Constants.QUESTION_SHOWING);
         }
         initView();
 

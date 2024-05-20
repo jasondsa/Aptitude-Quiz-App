@@ -47,7 +47,7 @@ public class GeographyOrLiteratureQuizActivity extends AppCompatActivity {
         String subject = intent.getStringExtra(Constants.SUBJECT);
 
         if (subject.equals(getString(R.string.literature))) {
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.literature), Constants.QUESTION_SHOWING);
+            questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.literature), Constants.QUESTION_SHOWING);
         }
         initView();
         variantClick1();
