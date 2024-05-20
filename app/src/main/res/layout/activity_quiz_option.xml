@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewQuizOption" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvMath"
+        android:id="@+id/Math"
         style="@style/cardViewStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_card_height"
@@ -78,9 +78,9 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/cvMath"
-        app:layout_constraintStart_toStartOf="@+id/cvMath"
-        app:layout_constraintTop_toBottomOf="@+id/cvMath">
+        app:layout_constraintEnd_toEndOf="@+id/Math"
+        app:layout_constraintStart_toStartOf="@+id/Math"
+        app:layout_constraintTop_toBottomOf="@+id/Math">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -152,7 +152,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvProgrammingConcepts"
+        android:id="@+id/ProgrammingConcepts"
         style="@style/cardViewStyle"
         android:layout_width="0dp"
         android:layout_height="@dimen/home_card_height"

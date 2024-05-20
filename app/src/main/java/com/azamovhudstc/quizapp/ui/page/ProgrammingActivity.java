@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class LogicalReasoningActivity extends AppCompatActivity {
+public class ProgrammingActivity extends AppCompatActivity {
     private int currentQuestionIndex = 0;
     private TextView tvQuestion, tvQuestionNumber, text1, text2, text3, text4;
     private Button btnNext;
@@ -50,11 +50,11 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
     String subject;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logical_reasoning);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_programming);
         Intent intent = getIntent();
 
         subject = intent.getStringExtra(Constants.SUBJECT);
@@ -64,7 +64,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
         if (subject.equals(getString(R.string.math))) {
             questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.math), Constants.QUESTION_SHOWING);
         }else{
-            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.logical_reasoning), Constants.QUESTION_SHOWING);
+            questionsAnswerMap = Utils.getRandomLiteratureAndGeographyQuestions(this, getString(R.string.programming), Constants.QUESTION_SHOWING);
 
         }
         initView();
@@ -101,36 +101,36 @@ public class LogicalReasoningActivity extends AppCompatActivity {
     }
 
     private void createCountDownTimer(int timeC) {
-            final int[] times = {timeC};
-            mCountDownTimer = new CountDownTimer(times[0], 1000) {
+        final int[] times = {timeC};
+        mCountDownTimer = new CountDownTimer(times[0], 1000) {
 
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    times[0] -= 1000;
-                    time -= 1000;
-                    progressTime = (int) (millisUntilFinished / 1000);
-                    System.out.println("Progresss:" + progressTime);
-                    progressBar.setProgress(progressTime);
+            @Override
+            public void onTick(long millisUntilFinished) {
+                times[0] -= 1000;
+                time -= 1000;
+                progressTime = (int) (millisUntilFinished / 1000);
+                System.out.println("Progresss:" + progressTime);
+                progressBar.setProgress(progressTime);
 
-                }
+            }
 
-                @Override
-                public void onFinish() {
-                    //Do what you want
-                    times[0] = 0;
+            @Override
+            public void onFinish() {
+                //Do what you want
+                times[0] = 0;
 
-                    Intent intentResult = new Intent(LogicalReasoningActivity.this, FinalResultActivity.class);
-                    intentResult.putExtra(Constants.SUBJECT, subject);
-                    intentResult.putExtra(Constants.CORRECT, correctQuestion);
-                    intentResult.putExtra(Constants.TYPE, "math");
-                    intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
-                    intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intentResult);
-                    finish();
+                Intent intentResult = new Intent(ProgrammingActivity.this, FinalResultActivity.class);
+                intentResult.putExtra(Constants.SUBJECT, subject);
+                intentResult.putExtra(Constants.CORRECT, correctQuestion);
+                intentResult.putExtra(Constants.TYPE, "math");
+                intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
+                intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentResult);
+                finish();
 
-                    progressBar.setProgress(0);
-                }
-            }.start();
+                progressBar.setProgress(0);
+            }
+        }.start();
 
     }
 
@@ -138,8 +138,8 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
     private void pauseTime() {
 
-            mCountDownTimer.cancel();
-            isActive = false;
+        mCountDownTimer.cancel();
+        isActive = false;
 
     }
 
@@ -280,7 +280,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
             if (btnNext.getText().equals(getString(R.string.next))) {
                 displayNextQuestions();
             } else {
-                Intent intentResult = new Intent(LogicalReasoningActivity.this, FinalResultActivity.class);
+                Intent intentResult = new Intent(ProgrammingActivity.this, FinalResultActivity.class);
                 intentResult.putExtra(Constants.SUBJECT, subject);
                 intentResult.putExtra(Constants.CORRECT, correctQuestion);
                 intentResult.putExtra(Constants.TYPE, "math");
@@ -359,6 +359,5 @@ public class LogicalReasoningActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
-
 
 }

@@ -294,7 +294,117 @@ public class Utils {
 
         return questions;
 
+    }
 
+    public static Map<String, Map<String, Boolean>> getProgrammingQuestions() {
+        HashMap<String, Map<String, Boolean>> questions = new HashMap<>();
+
+        HashMap<String, Boolean> answer1 = new HashMap<>();
+        answer1.put("int", true);
+        answer1.put("float", false);
+        answer1.put("boolean", false);
+        answer1.put("double", false);
+        questions.put("What is the default data type of numbers in Java?", answer1);
+
+        HashMap<String, Boolean> answer2 = new HashMap<>();
+        answer2.put("for", true);
+        answer2.put("while", false);
+        answer2.put("do-while", false);
+        answer2.put("switch", false);
+        questions.put("Which loop is best for iterating through an array in Java?", answer2);
+
+        HashMap<String, Boolean> answer3 = new HashMap<>();
+        answer3.put("malloc()", false);
+        answer3.put("alloc()", false);
+        answer3.put("new", true);
+        answer3.put("create", false);
+        questions.put("Which keyword is used to allocate memory for an object in Java?", answer3);
+
+        HashMap<String, Boolean> answer4 = new HashMap<>();
+        answer4.put("Inheritance", true);
+        answer4.put("Encapsulation", false);
+        answer4.put("Polymorphism", false);
+        answer4.put("Abstraction", false);
+        questions.put("Which OOP concept is used to derive a class from another class?", answer4);
+
+        HashMap<String, Boolean> answer5 = new HashMap<>();
+        answer5.put("==", false);
+        answer5.put("equals()", true);
+        answer5.put("compareTo()", false);
+        answer5.put("equalsString()", false);
+        questions.put("Which method is used to compare two strings for their content equality in Java?", answer5);
+
+        HashMap<String, Boolean> answer6 = new HashMap<>();
+        answer6.put("Array", false);
+        answer6.put("Linked List", false);
+        answer6.put("Stack", true);
+        answer6.put("Queue", false);
+        questions.put("Which data structure follows Last In First Out (LIFO) principle?", answer6);
+
+        HashMap<String, Boolean> answer7 = new HashMap<>();
+        answer7.put("public", false);
+        answer7.put("private", false);
+        answer7.put("protected", false);
+        answer7.put("static", true);
+        questions.put("Which keyword is used to define a method that belongs to the class, rather than any instance of the class?", answer7);
+
+        HashMap<String, Boolean> answer8 = new HashMap<>();
+        answer8.put("Runtime Error", false);
+        answer8.put("Syntax Error", true);
+        answer8.put("Logical Error", false);
+        answer8.put("Compilation Error", false);
+        questions.put("What type of error is caused by missing a semicolon at the end of a statement in C++?", answer8);
+
+        HashMap<String, Boolean> answer9 = new HashMap<>();
+        answer9.put("Abstract Class", true);
+        answer9.put("Interface", false);
+        answer9.put("Concrete Class", false);
+        answer9.put("Enum", false);
+        questions.put("Which type of class in Java cannot be instantiated?", answer9);
+
+        HashMap<String, Boolean> answer10 = new HashMap<>();
+        answer10.put("Function", false);
+        answer10.put("Method", true);
+        answer10.put("Procedure", false);
+        answer10.put("Routine", false);
+        questions.put("What is a function defined inside a class called in Java?", answer10);
+
+        HashMap<String, Boolean> answer11 = new HashMap<>();
+        answer11.put("Garbage Collection", true);
+        answer11.put("Memory Leak", false);
+        answer11.put("Stack Overflow", false);
+        answer11.put("Buffer Overflow", false);
+        questions.put("What mechanism automatically handles the deletion of objects when they are no longer needed in Java?", answer11);
+
+        HashMap<String, Boolean> answer12 = new HashMap<>();
+        answer12.put("0", true);
+        answer12.put("1", false);
+        answer12.put("-1", false);
+        answer12.put("Undefined", false);
+        questions.put("What is the default value of an int variable in a class in Java?", answer12);
+
+        HashMap<String, Boolean> answer13 = new HashMap<>();
+        answer13.put("try-catch", true);
+        answer13.put("if-else", false);
+        answer13.put("throw-throws", false);
+        answer13.put("finally", false);
+        questions.put("Which block is used to handle exceptions in Java?", answer13);
+
+        HashMap<String, Boolean> answer14 = new HashMap<>();
+        answer14.put("Dynamic Binding", true);
+        answer14.put("Static Binding", false);
+        answer14.put("Both A and B", false);
+        answer14.put("None of the above", false);
+        questions.put("Which type of binding is used when the method to be called is determined at runtime?", answer14);
+
+        HashMap<String, Boolean> answer15 = new HashMap<>();
+        answer15.put("Recursion", true);
+        answer15.put("Iteration", false);
+        answer15.put("Selection", false);
+        answer15.put("Sequence", false);
+        questions.put("What is the process of a function calling itself called?", answer15);
+
+        return questions;
     }
 
 
@@ -502,23 +612,18 @@ public class Utils {
     }
 
     public static Map<String,Map<String,Boolean>> getRandomLiteratureAndGeographyQuestions(Context context, String subject, int SIZE){
-        Log.d("Utils", "Subject: " + subject);
-        Log.d("Utils", "Expected subject: " + context.getString(R.string.logical_reasoning));
 
         Map<String,Map<String,Boolean>> questionsMap = new HashMap<>();
-        Map<String, Map<String, Boolean>> originalQuestion = new HashMap<>(); // Initialize originalQuestion to an empty HashMap
-
-        try {
-            Log.d("Utils", "Inside try block");
-
+        Map<String, Map<String, Boolean>> originalQuestion = new HashMap<>();
             if(subject.equals(context.getString(R.string.vocabulary))){
-                Log.d("Utils", "Inside vocabulary if condition");
                 originalQuestion = getVocabularyQuestions();
             } else if (subject.equals(context.getString(R.string.logical_reasoning))){
-                Log.d("Utils", "Inside logical reasoning if condition");
                 originalQuestion = getLogicalReasoningQuestions();
             } else if (subject.equals(context.getString(R.string.geography))) {
                 originalQuestion = getGeographyQuestions();
+            }
+            else if (subject.equals(context.getString(R.string.programming))) {
+                originalQuestion = getProgrammingQuestions();
             }
             int originalSize =  originalQuestion.size();
             ArrayList<String> keyList = new ArrayList<String>(originalQuestion.keySet());
@@ -531,11 +636,6 @@ public class Utils {
                     questionsMap.put(question,originalQuestion.get(question));
                 }
             }
-
-            Log.d("Utils", "Questions: " + questionsMap.toString()); // Add this line
-        } catch (Exception e) {
-            Log.e("Utils", "Exception occurred: ", e);
-        }
 
         return questionsMap;
     }
