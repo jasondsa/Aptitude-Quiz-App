@@ -12,6 +12,7 @@ import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.page.GeographyOrLiteratureQuizActivity;
 import com.azamovhudstc.quizapp.ui.page.LogicalReasoningActivity;
 import com.azamovhudstc.quizapp.ui.page.MathQuizActivity;
+import com.azamovhudstc.quizapp.ui.page.ProgrammingActivity;
 import com.azamovhudstc.quizapp.ui.page.VocabularyActivity;
 import com.azamovhudstc.quizapp.util.Constants;
 
@@ -28,7 +29,7 @@ public class QuizOptionActivity extends AppCompatActivity {
                 finish();
             }
         });
-        findViewById(R.id.cvMath).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.Math).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mathClick();
@@ -47,6 +48,13 @@ public class QuizOptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LogicalReasoningClick();
+            }
+        });
+
+        findViewById(R.id.ProgrammingConcepts).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProgramingConceptsClick();
             }
         });
 
@@ -69,5 +77,12 @@ public class QuizOptionActivity extends AppCompatActivity {
         Intent intent = new Intent(QuizOptionActivity.this, LogicalReasoningActivity.class);
         intent.putExtra(Constants.SUBJECT, getString(R.string.logical_reasoning));
         startActivity(intent);
+    }
+
+    public void ProgramingConceptsClick(){
+        Intent intent = new Intent(QuizOptionActivity.this, ProgrammingActivity.class);
+        intent.putExtra(Constants.SUBJECT, getString(R.string.programming));
+        startActivity(intent);
+
     }
 }
