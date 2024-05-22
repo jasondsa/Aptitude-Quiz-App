@@ -2,6 +2,7 @@ package com.azamovhudstc.quizapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.azamovhudstc.quizapp.R;
+import com.azamovhudstc.quizapp.database.DatabaseHelper;
 import com.azamovhudstc.quizapp.local_data.QuizPref;
 import com.azamovhudstc.quizapp.model.HistoryModel;
 import com.azamovhudstc.quizapp.util.Constants;
@@ -39,12 +41,14 @@ public class FinalResultActivity extends AppCompatActivity {
     private TextView tvSubject, tvCorrect, tvIncorrect, tvDate, tvWellDone;
     private QuizPref quizPref = QuizPref.getInstance();
     HistoryModel historyModel;
-    KonfettiView konfettiView;
+
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_result);
+        databaseHelper = new DatabaseHelper(this);
         initView();
         onBackPressed();
         Intent intent = getIntent();
@@ -102,7 +106,7 @@ public class FinalResultActivity extends AppCompatActivity {
     }
 
     public void initView() {
-//        konfettiView = findViewById(R.id.viewKonfetti);
+
         tvSubject = findViewById(R.id.textView16);
         tvCorrect = findViewById(R.id.textView19);
         tvIncorrect = findViewById(R.id.textView27);
@@ -115,7 +119,7 @@ public class FinalResultActivity extends AppCompatActivity {
 //        final int containerMiddleY = konfettiView.getHeight() / 2;
 //        final ConfettiSource confettiSource = new ConfettiSource(containerMiddleX, containerMiddleY);
 
-
+        databaseHelper.insertData(this, attempt.getSubject(), Integer.parseInt(String.valueOf(attempt.getCorrect())), Integer.parseInt(String.valueOf(attempt.getIncorrect())), Utils.formatDate(attempt.getCreatedTime()));
         tvSubject.setText(attempt.getSubject());
         tvCorrect.setText(String.valueOf(attempt.getCorrect()));
         tvIncorrect.setText(String.valueOf(attempt.getIncorrect()));
@@ -131,6 +135,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("MissingSuperCall")
     public void onBackPressed() {
         findViewById(R.id.imageViewFinalResultQuiz).setOnClickListener(view -> {
             Intent intent = new Intent(FinalResultActivity.this, HomeActivity.class);
