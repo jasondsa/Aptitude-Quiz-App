@@ -25,6 +25,7 @@ import com.azamovhudstc.quizapp.util.Constants;
 import com.azamovhudstc.quizapp.util.Utils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -118,6 +119,7 @@ public class MathQuizActivity extends AppCompatActivity {
                 intentResult.putExtra(Constants.SUBJECT, subject);
                 intentResult.putExtra(Constants.CORRECT, correctQuestion);
                 intentResult.putExtra(Constants.TYPE, "math");
+                intentResult.putExtra(Constants.CREATED_TIME, Calendar.getInstance().getTimeInMillis());
                 intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
                 intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentResult);
