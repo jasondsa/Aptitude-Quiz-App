@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.adapter.HistoryAdapter;
+import com.azamovhudstc.quizapp.database.DatabaseHelper;
 import com.azamovhudstc.quizapp.local_data.QuizPref;
 import com.azamovhudstc.quizapp.model.HistoryModel;
 import com.google.gson.Gson;
@@ -65,16 +66,8 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private ArrayList<HistoryModel> loadData() {
-
-        historyModelList = new ArrayList<HistoryModel>();
-        Gson gson = new Gson();
-        String gsonString = quizPref.getHistoryQuiz();
-        Type type = new TypeToken<ArrayList<HistoryModel>>() {
-        }.getType();
-        if (!gsonString.isEmpty()) {
-            historyModelList = gson.fromJson(gsonString, type);
-
-        }
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        historyModelList = databaseHelper.getAllHistory();
         return historyModelList;
     }
 
