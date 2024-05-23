@@ -54,6 +54,7 @@ public class HistoryAdapter  extends RecyclerView.Adapter<HistoryAdapter.Attempt
                 intent.putExtra(Constants.CORRECT,item.getCorrect());
                 intent.putExtra(Constants.INCORRECT,item.getIncorrect());
                 intent.putExtra(Constants.SUBJECT,item.getSubject());
+                intent.putExtra(Constants.CREATED_TIME,item.getCreatedTime());
                 context.startActivity(intent);
                 context.finish();
             }
