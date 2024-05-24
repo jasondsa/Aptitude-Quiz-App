@@ -22,7 +22,7 @@
     <string name="literature_quiz">Adabiyot</string>
     <string name="geography_quiz">Geography</string>
     <string name="rules1_description">The quiz contains 10 random questions.</string>
-    <string name="rules2_description">Each correct answer will give you 5 points.</string>
+    <string name="rules2_description">Each correct answer will give you more time.</string>
     <string name="rules3_description">Each wrong answer will cost you 2 points.</string>
     <string name="rules4_description">Your results are saved and collected in your history.</string>
     <string name="exit">Exit</string>

@@ -12,7 +12,7 @@ import com.azamovhudstc.quizapp.R;
 
 public class AboutActivity extends AppCompatActivity {
     androidx.appcompat.widget.Toolbar toolbar;
-    CardView youtube,instagram,facebook,telegram;
+    CardView github,instagram,linkedin,telegram;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +21,8 @@ public class AboutActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v->{
             onBackPressed();
         });
-        youtube.setOnClickListener(v->{
-            String url = "https://www.youtube.com/c/GITADasturchilarAkademiyasi";
+        github.setOnClickListener(v->{
+            String url = "https://github.com/jasondsa";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             startActivity(i);
@@ -33,8 +33,8 @@ public class AboutActivity extends AppCompatActivity {
             i.setData(Uri.parse(url));
             startActivity(i);
         });
-        facebook.setOnClickListener(v->{
-            String url = "https://www.facebook.com/profile.php?id=100077062961253";
+        linkedin.setOnClickListener(v->{
+            String url = "https://www.linkedin.com/in/jason-dsa/";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             startActivity(i);
@@ -48,9 +48,9 @@ public class AboutActivity extends AppCompatActivity {
     }
     private void initView(){
         toolbar=findViewById(R.id.toolbar2);
-        youtube=findViewById(R.id.youtube);
+        github=findViewById(R.id.github);
         instagram=findViewById(R.id.instagram);
-        facebook=findViewById(R.id.facebook);
+        linkedin=findViewById(R.id.linkedin);
         telegram=findViewById(R.id.cardView3);
     }
 }
