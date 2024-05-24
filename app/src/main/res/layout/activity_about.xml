@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AboutActivity">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -37,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/image"
+        android:id="@+id/jason"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginTop="50dp"
@@ -54,7 +53,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/gita" />
+            android:src="@drawable/jason" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -103,7 +102,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/facebook"
+                android:id="@+id/linkedin"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="20dp"
@@ -117,21 +116,19 @@
                 app:layout_constraintVertical_bias="0.488">
 
                 <ImageView
-                    android:id="@+id/facebookIcon"
+                    android:id="@+id/linkedinIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="?selectableItemBackgroundBorderless"
                     android:scaleType="centerCrop"
-                    android:tooltipText="Facebook"
+                    android:tooltipText="LinkedIn"
                     android:clickable="true"
-
-                    android:src="@drawable/facebook"
-                    app:tint="#2196F3" />
+                    android:src="@drawable/linkedin" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/youtube"
+                android:id="@+id/github"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="20dp"
@@ -140,21 +137,21 @@
                 app:cardCornerRadius="15dp"
                 app:cardElevation="0dp"
 
-                app:layout_constraintBottom_toBottomOf="@+id/facebook"
-                app:layout_constraintEnd_toStartOf="@+id/facebook"
-                app:layout_constraintTop_toTopOf="@+id/facebook"
+                app:layout_constraintBottom_toBottomOf="@+id/linkedin"
+                app:layout_constraintEnd_toStartOf="@+id/linkedin"
+                app:layout_constraintTop_toTopOf="@+id/linkedin"
                 app:layout_constraintVertical_bias="0.488">
 
                 <ImageView
-                    android:id="@+id/youtubeIcon"
+                    android:id="@+id/githubIcon"
                     android:layout_width="40dp"
-                    android:tooltipText="Youtube"
+                    android:tooltipText="Github"
                     android:layout_height="49dp"
                     android:clickable="true"
                     android:layout_gravity="center"
                     android:background="?selectableItemBackgroundBorderless"
-                    android:src="@drawable/youtube"
-                    app:tint="#F32121" />
+                    android:src="@drawable/github"
+                    app:tint="#000" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
