@@ -44,7 +44,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
     private ImageView cardBg, backadabiy, cardBg2, cardBg3, cardBg4;
     private Map<String, Map<String, Boolean>> questionsAnswerMap;
     private ArrayList<String> getQuestionsAnswerMap;
-    int time = 60000;
+    int time = 180000; //3 minutes in milliseconds
     static boolean isActive;
     CountDownTimer mCountDownTimer;
     private Chronometer chronometer;
@@ -273,7 +273,9 @@ public class LogicalReasoningActivity extends AppCompatActivity {
                 correctQuestion++;
 
                 mCountDownTimer.cancel();
-                createCountDownTimer(time += 3000);//                        994051755
+                createCountDownTimer(time += 3000); //Increase Time when the answer is right.                       994051755
+            }else{
+                time-=10000; //Decrease time when the answer is wrong.
             }
             currentQuestionIndex++;
             variantClear();
@@ -284,6 +286,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
                 intentResult.putExtra(Constants.SUBJECT, subject);
                 intentResult.putExtra(Constants.CORRECT, correctQuestion);
                 intentResult.putExtra(Constants.TYPE, "math");
+                intentResult.putExtra(Constants.CREATED_TIME, Calendar.getInstance().getTimeInMillis());
                 intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
                 intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentResult);

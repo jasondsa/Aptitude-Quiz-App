@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Size;
 import android.view.View;
 import android.widget.TextView;
@@ -57,6 +58,7 @@ public class FinalResultActivity extends AppCompatActivity {
         String subject = intent.getStringExtra(Constants.SUBJECT);
         int earnedPoints = (correctAnswer * Constants.CORRECT_POINT) - (incorrectAnswer * Constants.INCORRECT_POINT);
         long createdTime = intent.getLongExtra(Constants.CREATED_TIME, 0);
+        Log.d("TAG", "onCreate: " + createdTime);
         TextView textView=findViewById(R.id.result_);
 
         historyModel = new HistoryModel(createdTime, subject, correctAnswer, incorrectAnswer, earnedPoints);
