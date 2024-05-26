@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.azamovhudstc.quizapp.R;
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView userNameHome;
     CardView cvStartQuiz, cvRule, cvHistory, cvLogout, cvAbout;
     QuizPref quizPref;
+    ImageButton logout;
 
 
 
@@ -64,6 +66,26 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(HomeActivity.this, RulesActivity.class));
 
         });
+        logout.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+            builder.setTitle("Logout");
+            builder.setMessage("Are you sure you want to logout?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    quizPref.clearName();
+                    startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                    finish();
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.show();
+        });
     }
 
     public void initView() {
@@ -74,6 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         cvLogout = findViewById(R.id.cvLogout);
         userNameHome = (TextView) findViewById(R.id.tvUsernameHome);
         quizPref = QuizPref.getInstance();
+        logout = findViewById(R.id.logout);
     }
 
     @Override

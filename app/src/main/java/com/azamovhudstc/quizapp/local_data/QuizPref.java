@@ -52,6 +52,10 @@ public class QuizPref {
         editor.putInt(Constants.POINT_KEY, point);
         editor.apply();
     }
+    public void clearName() {
+        editor.remove("name");
+        editor.apply();
+    }
 
     public int getPoint() {
         return sharedPreferences.getInt(Constants.POINT_KEY, 0);

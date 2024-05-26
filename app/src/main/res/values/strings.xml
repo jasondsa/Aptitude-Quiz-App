@@ -12,7 +12,7 @@
     <string name="new_password_cannot_be_empty">New Password cannot be empty</string>
     <string name="confirm_new_password_cannot_be_empty">Confirm New Password cannot be empty</string>
     <string name="literature">Literature</string>
-    <string name="geography">Mathematics</string>
+    <string name="maths">Mathematics</string>
     <string name="math">Math</string>
     <string name="vocabulary">Vocabulary</string>
     <string name="logical_reasoning">Logical Reasoning</string>
@@ -27,7 +27,7 @@
     <string name="rules4_description">Your results are saved and collected in your history.</string>
     <string name="exit">Exit</string>
     <string name="play_again">Play again</string>
-    <string name="game_over">Game Over</string>
+    <string name="game_over">Game Over\nTime Ran Out</string>
     <string name="about">About The Quiz</string>
     <string name="instruction">Instruction</string>
     <string name="quit">Quit</string>

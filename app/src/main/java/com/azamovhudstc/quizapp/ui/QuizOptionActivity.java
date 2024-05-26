@@ -62,7 +62,7 @@ public class QuizOptionActivity extends AppCompatActivity {
 
     public void mathClick() {
         Intent intent = new Intent(QuizOptionActivity.this, MathQuizActivity.class);
-        intent.putExtra(Constants.SUBJECT, getString(R.string.geography));
+        intent.putExtra(Constants.SUBJECT, getString(R.string.maths));
         startActivity(intent);
 
     }
