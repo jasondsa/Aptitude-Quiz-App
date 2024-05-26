@@ -469,7 +469,7 @@ public class Utils {
                 originalQuestion = getVocabularyQuestions();
             } else if (subject.equals(context.getString(R.string.logical_reasoning))){
                 originalQuestion = getLogicalReasoningQuestions();
-            } else if (subject.equals(context.getString(R.string.geography))) {
+            } else if (subject.equals(context.getString(R.string.maths))) {
                 originalQuestion = getMathQuestions();
             }
             else if (subject.equals(context.getString(R.string.programming))) {

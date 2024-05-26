@@ -21,11 +21,13 @@ import android.widget.Toast;
 
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.FinalResultActivity;
+import com.azamovhudstc.quizapp.ui.GameOverActivity;
 import com.azamovhudstc.quizapp.util.Constants;
 import com.azamovhudstc.quizapp.util.Utils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +45,7 @@ public class MathQuizActivity extends AppCompatActivity {
     private ImageView cardBg, backadabiy, cardBg2, cardBg3, cardBg4;
     private Map<String, Map<String, Boolean>> questionsAnswerMap;
     private ArrayList<String> getQuestionsAnswerMap;
-    int time = 180000; //3 minutes in milliseconds
+    int time = 100000; // 100 seconds
     static boolean isActive;
     CountDownTimer mCountDownTimer;
     private Chronometer chronometer;
@@ -59,8 +61,8 @@ public class MathQuizActivity extends AppCompatActivity {
         subject = intent.getStringExtra(Constants.SUBJECT);
         chronometer = new Chronometer(this);
 
-        if (subject.equals(getString(R.string.geography))) {
-            questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.geography), Constants.QUESTION_SHOWING);
+        if (subject.equals(getString(R.string.maths))) {
+            questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.maths), Constants.QUESTION_SHOWING);
         }
         initView();
 
@@ -68,7 +70,7 @@ public class MathQuizActivity extends AppCompatActivity {
         variantClick2();
         variantClick3();
         variantClick4();
-        progressBar.setMax(180);
+        progressBar.setMax(100);
 
         chronometer.start();
         Log.d("!@#", "onCreate: " + (System.currentTimeMillis() - chronometer.getBase()));
@@ -115,13 +117,8 @@ public class MathQuizActivity extends AppCompatActivity {
                 //Do what you want
                 times[0] = 0;
 
-                Intent intentResult = new Intent(MathQuizActivity.this, FinalResultActivity.class);
+                Intent intentResult = new Intent(MathQuizActivity.this, GameOverActivity.class);
                 intentResult.putExtra(Constants.SUBJECT, subject);
-                intentResult.putExtra(Constants.CORRECT, correctQuestion);
-                intentResult.putExtra(Constants.TYPE, "math");
-                intentResult.putExtra(Constants.CREATED_TIME, Calendar.getInstance().getTimeInMillis());
-                intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
-                intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentResult);
                 finish();
 
@@ -252,7 +249,7 @@ public class MathQuizActivity extends AppCompatActivity {
     private void setAnswersToRadioButton() {
 
         ArrayList<String> questionKey = new ArrayList(questionsAnswerMap.get(questions.get(currentQuestionIndex)).keySet());
-
+        Collections.shuffle(questionKey);
         text1.setText(questionKey.get(0));
         text2.setText(questionKey.get(1));
         text3.setText(questionKey.get(2));
@@ -268,7 +265,7 @@ public class MathQuizActivity extends AppCompatActivity {
                 correctQuestion++;
 
                 mCountDownTimer.cancel();
-                createCountDownTimer(time += 3000); //Increase Time when the answer is right.
+                createCountDownTimer(time += 5000); //Increase Time when the answer is right.
             }else{
                 mCountDownTimer.cancel();
                 createCountDownTimer(time -= 10000); //Decrease time when the answer is wrong.

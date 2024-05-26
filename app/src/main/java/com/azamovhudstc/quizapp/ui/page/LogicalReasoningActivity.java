@@ -23,11 +23,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.azamovhudstc.quizapp.R;
 import com.azamovhudstc.quizapp.ui.FinalResultActivity;
+import com.azamovhudstc.quizapp.ui.GameOverActivity;
 import com.azamovhudstc.quizapp.util.Constants;
 import com.azamovhudstc.quizapp.util.Utils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +46,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
     private ImageView cardBg, backadabiy, cardBg2, cardBg3, cardBg4;
     private Map<String, Map<String, Boolean>> questionsAnswerMap;
     private ArrayList<String> getQuestionsAnswerMap;
-    int time = 180000; //3 minutes in milliseconds
+    int time = 100000; // 100 seconds
     static boolean isActive;
     CountDownTimer mCountDownTimer;
     private Chronometer chronometer;
@@ -59,12 +61,11 @@ public class LogicalReasoningActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         subject = intent.getStringExtra(Constants.SUBJECT);
+        Log.d("Subject", "onCreate: " + subject);
 
         chronometer = new Chronometer(this);
 
-
         questionsAnswerMap = Utils.getRandomQuestions(this, getString(R.string.logical_reasoning), Constants.QUESTION_SHOWING);
-
 
         initView();
 
@@ -72,7 +73,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
         variantClick2();
         variantClick3();
         variantClick4();
-        progressBar.setMax(180);
+        progressBar.setMax(100);
 
 
         chronometer.start();
@@ -118,16 +119,10 @@ public class LogicalReasoningActivity extends AppCompatActivity {
                     //Do what you want
                     times[0] = 0;
 
-                    Intent intentResult = new Intent(LogicalReasoningActivity.this, FinalResultActivity.class);
+                    Intent intentResult = new Intent(LogicalReasoningActivity.this, GameOverActivity.class);
                     intentResult.putExtra(Constants.SUBJECT, subject);
-                    intentResult.putExtra(Constants.CORRECT, correctQuestion);
-                    intentResult.putExtra(Constants.TYPE, "math");
-                    intentResult.putExtra(Constants.CREATED_TIME, Calendar.getInstance().getTimeInMillis());
-                    intentResult.putExtra(Constants.INCORRECT, Constants.QUESTION_SHOWING - correctQuestion);
-                    intentResult.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intentResult);
                     finish();
-
                     progressBar.setProgress(0);
                 }
             }.start();
@@ -181,10 +176,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
         );
     }
 
-
     private void variantClick3() {
-
-
         radioButton3.setOnClickListener(v -> {
                     click(v);
                     radioButton2.setEnabled(false);
@@ -256,12 +248,11 @@ public class LogicalReasoningActivity extends AppCompatActivity {
     private void setAnswersToRadioButton() {
 
         ArrayList<String> questionKey = new ArrayList(questionsAnswerMap.get(questions.get(currentQuestionIndex)).keySet());
-
+        Collections.shuffle(questionKey);
         text1.setText(questionKey.get(0));
         text2.setText(questionKey.get(1));
         text3.setText(questionKey.get(2));
         text4.setText(questionKey.get(3));
-
     }
 
 
@@ -273,7 +264,7 @@ public class LogicalReasoningActivity extends AppCompatActivity {
                 correctQuestion++;
 
                 mCountDownTimer.cancel();
-                createCountDownTimer(time += 3000); //Increase Time when the answer is right.                       994051755
+                createCountDownTimer(time += 5000); //Increase Time when the answer is right.                       994051755
             }else{
                 mCountDownTimer.cancel();
                 createCountDownTimer(time -= 10000); //Decrease time when the answer is wrong.
