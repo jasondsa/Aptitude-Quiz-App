@@ -72,7 +72,7 @@ public class ProgrammingActivity extends AppCompatActivity {
         variantClick2();
         variantClick3();
         variantClick4();
-        progressBar.setMax(60);
+        progressBar.setMax(180);
 
 
         chronometer.start();
@@ -275,7 +275,8 @@ public class ProgrammingActivity extends AppCompatActivity {
                 mCountDownTimer.cancel();
                 createCountDownTimer(time += 3000); //Increase Time when the answer is right.
             }else{
-                time-=10000; //Decrease time when the answer is wrong.
+                mCountDownTimer.cancel();
+                createCountDownTimer(time -= 10000); //Decrease time when the answer is wrong.
             }
             currentQuestionIndex++;
             variantClear();
